@@ -17,7 +17,9 @@ function UserProfile() {
         const response = await fetch(
           "https://jsonplaceholder.typicode.com/users"
         );
+
         const data: UserProfileInterface[] = await response.json();
+
         setUsers(data);
         setIsLoading(false);
       } catch (error) {
@@ -33,6 +35,7 @@ function UserProfile() {
       <h1>User profile</h1>
       {isLoading && <h4>Loading data...</h4>}
       {error &&
+        !users.length &&
         <h5>
           {error}
         </h5>}
