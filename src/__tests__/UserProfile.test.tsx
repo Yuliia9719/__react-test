@@ -32,8 +32,14 @@ describe("UserProfile", () => {
 
     const names = await screen.findAllByText(/Leanne Graham/i);
     expect(names.length).toBeGreaterThan(0);
+    names.forEach(name => {
+      expect(name).toBeInTheDocument();
+    });
 
     const emails = await screen.findAllByText(/Sincere@april.biz/i);
     expect(emails.length).toBeGreaterThan(0);
+    emails.forEach(email => {
+      expect(email).toBeInTheDocument();
+    });
   });
 });
